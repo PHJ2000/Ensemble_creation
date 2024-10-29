@@ -65,6 +65,18 @@
                 clearTimeout(recordingTimeout);
                 console.log('녹음 중지');
 
+                // 서버로 Blob 데이터 전송
+                const formData = new FormData();
+                formData.append("audio", audioBlob, "recording.wav");  // "audio" 필드로 Blob 데이터 추가
+
+                fetch("/upload_audio", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => console.log("서버 응답:", data))
+                .catch(error => console.error("업로드 실패:", error));
+
                 // UI 상태 업데이트
                 document.querySelector('.pause-button').style.display = 'none';
                 document.querySelector('.play-button').style.display = 'block';
@@ -84,6 +96,7 @@
                 document.querySelector('.back-button').style.display = 'none';
             }
         }
+
 
         // 녹음 재생 함수
         function playRecording() {
@@ -146,6 +159,11 @@
     <button class="next-button" onclick="newFunction()" style="display: none;">
         <img src="{{ url_for('static', filename='img/nextbutton.png') }}" alt="넘어가기" class="icon">
     </button>
+
+    <button class="next-button" onclick="goToFinishPage()" style="display: none;">
+        <img src="{{ url_for('static', filename='img/nextbutton.png') }}" alt="넘어가기" class="icon">
+    </button>
+    
 
     <img src="{{ url_for('static', filename='img/박자샘플_캐릭터.svg') }}" alt="박자 샘플 이미지" class="trigger-image" id="triggerImage" onclick="toggleBeatSample();">
 

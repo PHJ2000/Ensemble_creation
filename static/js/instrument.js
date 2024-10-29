@@ -63,6 +63,9 @@ const instruments = {
     function goBack() {
         window.history.back();
     }
+    function goToFinishPage() {
+        window.location.href = "{{ url_for('compose_finish') }}";
+    }
     
 let currentAudio = null;
 
