@@ -8,9 +8,9 @@ const instruments = {
         소고는 지역마다 크기나 모양에 차이가 있을 수 있고, 일부 지역에서는 손잡이 대신 끈을 사용해 고정시켜 연주하기도 합니다. 
         현재는 다양한 형태에서 표준화된 형태로 많이 통일되었습니다. 
         이 악기는 음향보다는 춤과 동작에 더 많이 사용되며, 소고를 들고 추는 전통 춤 양식도 따로 발달해 있습니다.`,
-        image1: "static/img/sogo1.png",
-        image2: "static/img/sogo2_dance.jpg",
-        sound: "static/audios/sogo.mp3"
+        image1: "img/sogo1.png",
+        image2: "img/sogo2_dance.jpg",
+        sound: "audios/sogo.mp3"
     },
     gayageum: {
         name: "가야금",
@@ -20,9 +20,9 @@ const instruments = {
         가야금에는 풍류 가야금과 산조 가야금 두 종류가 있으며, 풍류 가야금이 더 크고, 주로 앉아서 연주합니다. 
         오동나무로 만들어졌으며, 손으로 줄을 뜯어 소리를 냅니다. 
         전통적으로 바닥에 앉아 연주하지만, 의자에 앉거나 서서도 연주할 수 있습니다.`,
-        image1: "static/img/gayageum1.jpg",
-        image2: "static/img/gayageum2.jpg",
-        sound: "static/audios/산조가야금.mp3"
+        image1: "img/gayageum1.jpg",
+        image2: "img/gayageum2.jpg",
+        sound: "audios/산조가야금.mp3"
     },
     jing: {
         name: "징",
@@ -30,9 +30,9 @@ const instruments = {
         놋쇠로 만든 둥근 쟁반 모양의 악기를 왼손에 들거나 틀에 매달아 놓고 둥근 채로 치는 방식으로 연주합니다. 
         농악, 무속음악, 불교음악, 군악 등에 두루 사용되며, 악기의 여운이 길고 울림이 깊습니다. 
         징채의 채 끝에 헝겊을 감아치기 때문에 부드러운 음색을 냅니다.`,
-        image1: "static/img/jing1.jpg",
-        image2: "static/img/jing2.jpg",
-        sound: "static/audios/jing.mp3"
+        image1: "img/jing1.jpg",
+        image2: "img/jing2.jpg",
+        sound: "audios/jing.mp3"
     },
     haegeum: {
         name: "해금",
@@ -42,9 +42,9 @@ const instruments = {
         오른손으로 활대를 이용해 두 줄을 문질러 소리를 내며, 왼손으로는 두 줄을 동시에 잡거나 떼면서 음높이를 조절합니다. 
         해금은 고려시대에 한국에 전해진 이후, 궁중음악부터 민속음악까지 다양한 분야에서 널리 사용되고 있습니다.
         `,
-        image1: "static/img/haegeum1.jpg",
-        image2: "static/img/haegeum2.png",
-        sound: "static/audios/haegeum.mp3"
+        image1: "img/haegeum1.jpg",
+        image2: "img/haegeum2.png",
+        sound: "audios/haegeum.mp3"
     },
     kkwaenggwari: {
         name: "꽹과리",
@@ -53,9 +53,9 @@ const instruments = {
         징보다 크기는 작지만, 소리가 매우 강하고 뚜렷하여 사물놀이에서 가장 두드러진 소리를 냅니다. 
         꽹과리는 농악이나 무속 음악에서 빠르고 변화무쌍한 장단을 이끌어가는 역할을 합니다. 
         둥글고 납작한 나뭇조각을 끝에 달아 만든 채로 연주하며, 손가락을 꽹과리 뒤쪽에 넣어 소리의 여운을 조절할 수 있습니다.`,
-        image1: "static/img/kkwaenggwari1.jpg",
-        image2: "static/img/kkwaenggwari2.png",
-        sound: "static/audios/kkwaenggwari.mp3"
+        image1: "img/kkwaenggwari1.jpg",
+        image2: "img/kkwaenggwari2.png",
+        sound: "audios/kkwaenggwari.mp3"
     }
 };
 
@@ -63,11 +63,10 @@ const instruments = {
     function goBack() {
         window.history.back();
     }
-    function goToFinishPage() {
-        window.location.href = "{{ url_for('compose_finish') }}";
-    }
     
 let currentAudio = null;
+
+
 
 function showModal(instrumentKey) {
     const instrument = instruments[instrumentKey];

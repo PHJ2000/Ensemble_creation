@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>エラーが発生しました</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">
+    <title>오류 발생</title>
+    <link rel="stylesheet" href="error.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -17,12 +17,12 @@
 <body>
     <div class="error-container">
         <!-- 뒤로가기 버튼 -->
-        <button class="back-button" onclick="goBack()">← 戻る</button>
+        <button class="back-button" onclick="goBack()">← 뒤로가기</button>
         
         <!-- 오류 메시지 -->
         <div class="error-message">
-            <h1>エラーによりアクセスできません。</h1>
-            <p> 戻るボタンを押して再試行してください。</p>
+            <h1>오류 발생으로 접근할 수 없습니다.</h1>
+            <p>뒤로가기를 눌러서 다시 시도해 주세요.</p>
         </div>
     </div>
 </body>

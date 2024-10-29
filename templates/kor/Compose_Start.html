@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>합주 생성 화면</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/compose_start.css') }}">
+    <link rel="stylesheet" href="css/compose_start.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -65,18 +65,6 @@
                 clearTimeout(recordingTimeout);
                 console.log('녹음 중지');
 
-                // 서버로 Blob 데이터 전송
-                const formData = new FormData();
-                formData.append("audio", audioBlob, "recording.wav");  // "audio" 필드로 Blob 데이터 추가
-
-                fetch("/upload_audio", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => console.log("서버 응답:", data))
-                .catch(error => console.error("업로드 실패:", error));
-
                 // UI 상태 업데이트
                 document.querySelector('.pause-button').style.display = 'none';
                 document.querySelector('.play-button').style.display = 'block';
@@ -97,7 +85,6 @@
             }
         }
 
-
         // 녹음 재생 함수
         function playRecording() {
             const audio = new Audio(audioUrl);
@@ -116,13 +103,13 @@
         function toggleBeatSample() {
             const beatSample = document.getElementById('beatSample');
             const triggerImage = document.querySelector('.trigger-image');
-            const newImageSrc = 'static/img/꽹가리캐릭터.png';
+            const newImageSrc = 'img/꽹가리캐릭터.png';
 
-            if (triggerImage.getAttribute('src') === 'static/img/박자샘플_캐릭터.svg') {
+            if (triggerImage.getAttribute('src') === 'img/박자샘플_캐릭터.svg') {
                 triggerImage.setAttribute('src', newImageSrc);
                 triggerImage.classList.add('kkangari');
             } else {
-                triggerImage.setAttribute('src', 'static/img/박자샘플_캐릭터.svg');
+                triggerImage.setAttribute('src', 'img/박자샘플_캐릭터.svg');
                 triggerImage.classList.remove('kkangari');
             }
 
@@ -147,52 +134,47 @@
     </script>
 </head>
 <body>
-    <img class="screen" src="{{ url_for('static', filename='img/배경테두리.png') }}" alt="배경 이미지">
+    <img class="screen" src="img/배경테두리.png" alt="배경 이미지">
     <h1 class="title">합주 생성을 위한 악기를 연주해보세요</h1>
     <h1 class="recording-message" style="display: none;">악기 소리가 녹음되는 중이에요...</h1>
     <h1 class="recording-result-message" style="display: none;">녹음된 악기 소리를 클릭해서 들어보세요</h1>
 
     <button class="back-button" onclick="goBack()">
-        <img src="{{ url_for('static', filename='img/backbutton.png') }}" alt="뒤로가기" class="icon">
+        <img src="img/backbutton.png" alt="뒤로가기" class="icon">
     </button>
 
     <button class="next-button" onclick="newFunction()" style="display: none;">
-        <img src="{{ url_for('static', filename='img/nextbutton.png') }}" alt="넘어가기" class="icon">
+        <img src="img/nextbutton.png" alt="넘어가기" class="icon">
     </button>
 
-    <button class="next-button" onclick="goToFinishPage()" style="display: none;">
-        <img src="{{ url_for('static', filename='img/nextbutton.png') }}" alt="넘어가기" class="icon">
-    </button>
-    
-
-    <img src="{{ url_for('static', filename='img/박자샘플_캐릭터.svg') }}" alt="박자 샘플 이미지" class="trigger-image" id="triggerImage" onclick="toggleBeatSample();">
+    <img src="img/박자샘플_캐릭터.svg" alt="박자 샘플 이미지" class="trigger-image" id="triggerImage" onclick="toggleBeatSample();">
 
     <div class="beat-sample hidden" id="beatSample">
-        <button class="icon-button" onclick="playSound('static/audios/소고샘플1.mp3')">
-            <img src="{{ url_for('static', filename='img/playbutton.png') }}" alt="음원1" class="circle-icon">
+        <button class="icon-button" onclick="playSound('audios/소고샘플1.mp3')">
+            <img src="img/playbutton.png" alt="음원1" class="circle-icon">
             <span class="sample-text">샘플 1</span>
         </button>
-        <button class="icon-button" onclick="playSound('static/audios/소고샘플2.mp3')">
-            <img src="{{ url_for('static', filename='img/playbutton.png') }}" alt="음원2" class="circle-icon">
+        <button class="icon-button" onclick="playSound('audios/소고샘플2.mp3')">
+            <img src="img/playbutton.png" alt="음원2" class="circle-icon">
             <span class="sample-text">샘플 2</span>
         </button>
-        <button class="icon-button" onclick="playSound('static/audios/소고샘플3.mp3')">
-            <img src="{{ url_for('static', filename='img/playbutton.png') }}" alt="음원3" class="circle-icon">
+        <button class="icon-button" onclick="playSound('audios/소고샘플3.mp3')">
+            <img src="img/playbutton.png" alt="음원3" class="circle-icon">
             <span class="sample-text">샘플 3</span>
         </button>
     </div>
 
     <div class="container">
         <div class="record-button" onclick="startRecording()">
-            <img src="{{ url_for('static', filename='img/recording_icon.png') }}" alt="녹음 시작" class="record-icon">
+            <img src="img/recording_icon.png" alt="녹음 시작" class="record-icon">
         </div>
 
         <div class="pause-button" style="display: none;" onclick="pauseOrStopRecording()">
-            <img src="{{ url_for('static', filename='img/record_stop_button.png') }}" alt="일시정지" class="pause-icon">
+            <img src="img/record_stop_button.png" alt="일시정지" class="pause-icon">
         </div>
 
         <div class="play-button" style="display: none;" onclick="playRecording()">
-            <img src="{{ url_for('static', filename='img/sound_icon.png') }}" alt="재생" class="play-icon">
+            <img src="img/sound_icon.png" alt="재생" class="play-icon">
         </div>
 
         <button class="reset-button" onclick="resetRecording()" style="display: none;">다시 연주하기</button>
