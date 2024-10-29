@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>튜토리얼 화면</title>
-    <link rel="stylesheet" href="css/tutorial.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tutorial.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -59,38 +59,38 @@
     </script>
 </head>
 <body>
-    <img class="screen" src="img/배경테두리.png">
+    <img class="screen" src="{{ url_for('static', filename='img/배경테두리.png') }}">
     <div class="container">
         <div class="title">튜토리얼</div> <!-- 슬라이드 컨테이너 위에 위치하는 제목 -->
         <!-- 뒤로가기 버튼 -->
         <button class="back-button" onclick="goBack()">
-            <img src = "img/backbutton.png" alt="뒤로가기" class="back-icon">
+            <img src = "{{ url_for('static', filename='img/backbutton.png') }}" alt="뒤로가기" class="back-icon">
         </button>
 
         <div class="slider-container">
             <button class="arrow left">
-                <img src="img/backbutton.png" alt="이전 슬라이드" class="slide-arrow">
+                <img src="{{ url_for('static', filename='img/backbutton.png') }}" alt="이전 슬라이드" class="slide-arrow">
             </button>
             <div class="slides">
-                <img src="img/녹음시작_kor.png" alt="슬라이드 1">
-                <img src="img/녹음중1.png" alt="슬라이드 2">
-                <img src="img/녹음중2.png" alt="슬라이드 3">
-                <img src="img/녹음재생1.png" alt="슬라이드 4">
-                <img src="img/녹음재생2.png" alt="슬라이드 5">
-                <img src="img/녹음재생3.png" alt="슬라이드 6">
-                <img src="img/tutorial3.png" alt="슬라이드 7">
+                <img src="{{ url_for('static', filename='img/녹음시작_kor.png') }}" alt='슬라이드 1'>
+                <img src="{{ url_for('static', filename='img/녹음중1_kor.png') }}"  alt='슬라이드 2'>
+                <img src="{{ url_for('static', filename='img/녹음중2_kor.png') }}"  alt='슬라이드 3'>
+                <img src="{{ url_for('static', filename='img/녹음재생1_kor.png') }}"  alt='슬라이드 4'>
+                <img src="{{ url_for('static', filename='img/녹음재생2_kor.png') }}"  alt='슬라이드 5'>
+                <img src="{{ url_for('static', filename='img/녹음재생3_kor.png') }}"  alt='슬라이드 6'>
+                <img src="{{ url_for('static', filename='img/tutorial3.png') }}"  alt='슬라이드 7'>
             </div>
             <button class="arrow right">
-                <img src="img/backbutton.png" alt="다음 슬라이드" class="slide-arrow">
+                <img src="{{ url_for('static', filename='img/backbutton.png') }}" alt="다음 슬라이드" class="slide-arrow">
             </button>
 
-            <a href="Compose_Start.html" class="create-button-wrapper">
+            <a href="{{ url_for('compose_start') }}" class="create-button-wrapper">
                 <button class="create-button">연주 시작하기</button>
             </a> 
         </div>
         
         <!-- 전통악기 알아보기 버튼 -->
-        <a href="instrument.html">
+        <a href="{{ url_for('instrument') }}">
         <button class="info-button">전통악기 알아보기</button>
         </a>
 
